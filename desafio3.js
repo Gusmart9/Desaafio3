@@ -85,7 +85,7 @@ class ProductManager {
     }
 }
 
-const productManager = new ProductManager('juegos.json');
+const productManager = new ProductManager('products.json');
 
 productManager.addProduct({
     title: "God of War Ragnarök",

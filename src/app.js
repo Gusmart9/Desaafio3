@@ -8,10 +8,10 @@ const port = 8080;
 
 //app.use(bodyParser.json());
 
-const productManager = new ProductManager('./juegos.json'); // Crea una instancia de ProductManager
+const productManager = new ProductManager('./products.json'); // Crea una instancia de ProductManager
 
 // Endpoint para obtener todos los productos con límite opcional
-app.get('/juegos.json', (req, res) => {
+app.get('/products.json', (req, res) => {
   const limit = req.query.limit;
 
   let products = productManager.getProducts();
@@ -24,8 +24,8 @@ app.get('/juegos.json', (req, res) => {
 });
 
 // Endpoint para obtener un producto por ID
-app.get('/juegos.json/:pid', (req, res) => {
-  const productId = req.params.pid;
+app.get('/products.json/:pid', (req, res) => {
+  const productId = parseInt(req.params.pid);
   const product = productManager.getProductById(productId);
 
   if (product) {
